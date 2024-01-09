@@ -36,6 +36,8 @@ export const verticalMenuItems = [
     new Menu(41, 'User Manual', '/paymentlookup', null, null, null, null, 40),
     new Menu(42, 'FAQ', '/paymentlookup', null, null, null, null, 40),
     new Menu(43, 'About', '/about', null, null, null, null, 40),
+    new Menu(44, 'Grid', '/grid', null, null, null, null, 40),
+
 ]
 
 export const horizontalMenuItems = [
@@ -104,5 +106,6 @@ export const horizontalMenuItems = [
     new Menu(41, 'User Guide', 'help/userGuide', null, null, null, null, 40),
     new Menu(42, 'Batch No Assignments', 'help/batchNoAssignments', null, null, null, null, 40),
     new Menu(43, 'about', '/about', null, null, null, null, 40),
+    new Menu(44, 'Grid', '/grid', null, null, null, null, 40),
 
 ]

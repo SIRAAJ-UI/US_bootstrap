@@ -35,13 +35,19 @@
             "styles": [
               "node_modules/font-awesome/scss/font-awesome.scss",
               "node_modules/bootstrap/scss/bootstrap.scss", 
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/styles.css",
               "src/styles.scss"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/jquery/dist/jquery.js",
               "node_modules/jquery-ui-dist/jquery-ui.js",
               "node_modules/tether/dist/js/tether.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "node_modules/popper.js/dist/popper.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+
             ]
            
           },
@@ -136,12 +142,16 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/styles.css"
             ],
             "scripts": []
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "02e4b779-f983-48d5-acbf-cb94098d841f"
   }
 }

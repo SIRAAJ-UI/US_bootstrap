@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { RouterModule,Routes } from '@angular/router';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MultiselectDropdownModule } from 'angular-2-dropdown-multiselect';
@@ -14,7 +14,7 @@ import { PaymentTaxCollectionComponent } from './Tax-Collections-As-Payments.com
 import { DateValidator } from './date-validator';
 import { PipesModule } from '../../payment-lookup/filters/pipes.module';
 
-export const routes = [
+export const routes:Routes = [
   { path: '', component: PaymentTaxCollectionComponent, pathMatch: 'full' }
 ];
 

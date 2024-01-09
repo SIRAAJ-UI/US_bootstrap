@@ -1,0 +1,115 @@
+<div class="pane pane-table-preference">
+    <!-- <div class="pane-hScroll" style="width:100%">
+    <div class="pane-vHeaderScroll"> -->
+      <div class="to-date">
+        <label class="col-form-label">Exception To Date</label>
+        <ngb-datepicker-popup [tabIndex]="2" [selectedDateKey]="searchModel['exceptionToDate']" controlName="exceptionToDate" [maxDateKey]="startCalenderDate"
+          [minDateKey]="searchModel['exceptionFromDate']" ></ngb-datepicker-popup>
+          <div class="error-section">
+              <ng-container *ngIf="isToDate" >
+                  To Date cannot be a future date
+              </ng-container>
+              <ng-container *ngIf="isValid" >
+                  From Date must be less than or equal to To Date
+              </ng-container>
+          </div>
+      </div>
+    <div class="column-headers" id="clscroll-column-headers" style="overflow-y:scroll; overflow-x:hidden">
+      <table>
+        <thead class="preference-table-header fixed-order">
+        
+          <th  class='handle' (click)="setOrder('Name')" style="width:120px">
+            <i class="sorting-class fa" *ngIf="order =='Name'" [ngClass]="{'fa-angle-down':reverse==true,'fa-angle-up':!reverse}"></i> Name
+          </th>
+          <th  class='handle' (click)="setOrder('Situs')" style="width:120px">
+            <i class="sorting-class fa" *ngIf="order =='Situs'" [ngClass]="{'fa-angle-down':reverse==true,'fa-angle-up':!reverse}"></i> Situs
+          </th>
+          <th  class='handle' (click)="setOrder('MailingAddress')" style="width:120px">
+            <i class="sorting-class fa" *ngIf="order =='MailingAddress'" [ngClass]="{'fa-angle-down':reverse==true,'fa-angle-up':!reverse}"></i> Mailing Address
+          </th>
+          <!-- <th style="width:300px">Name</th> -->
+          <!-- <th style="width:300px">Situs</th>
+          <th style="width:300px">Mailing Address</th> -->
+       
+          <!-- <th style="width:100px">Action</th> -->
+        </thead>
+      </table>
+    </div>
+    <div class="table-content">
+      <table class="table-striped box table-bordered outer-table">
+        <tbody>
+            <tr *ngFor="let item of jeoPardyLetterList | paginate: { itemsPerPage: pageRecordLimit, currentPage: p} ; let i= index"> 
+                <!-- | multiPropFilter: searchKey: searchParams | paginate: { itemsPerPage: pageRecordLimit, currentPage: p} ; let i= index"> -->
+            <!-- <tr> -->
+            <!-- <td class="handle" style="width:100px">
+              <input type="checkbox" [disabled]="!userPrivilege.canEditJPL" (change)="onChangeCanProcess(item)" class="form-control" [(ngModel)]="item.canProcess"
+                name="i" />
+            </td> -->
+            <!-- <td class="handle" style="width:300px">
+                {{item.parcel}}
+              </td>
+              <td class="handle" style="width:300px">
+                {{item.assessedTo}}
+              </td>
+              <td class="handle" style="width:300px">
+                <span>
+                  {{item.situsAddress1}} </span>
+              </td>
+              <td class="handle" style="width:300px">
+                <input class="form-control" *ngIf="i==0" [(ngModel)]="item.situsAddress1"/>                <span>
+                  {{item.mailAddress1}}&nbsp;{{item.mailAddress2}}&nbsp;{{item.mailAddress3}}&nbsp;{{item.mailZip}} </span>
+              </td> -->
+            
+            <td class="handle" style="width:300px">
+              {{item.Name}}
+            </td>
+            <td class="handle" style="width:300px">
+              <span>
+                {{item.Situs}}
+                 </span>
+            </td>
+            <td class="handle" style="width:300px">
+              <span>
+                {{item.MailingAddress}}
+               </span>
+            </td> 
+            <!-- <td class="handle" style="width:300px">
+                {{item.modifiedDate}}
+              </td> -->
+            <!-- <td class="handle" style="width:100px">
+              <i class="fa fa-pencil" *ngIf="!item.isClicked"(click)="onRowEditClick(item)"></i>
+              <button class="btn" *ngIf="!!item.isClicked">Save</button>
+            </td> -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- </div> -->
+  </div>
+
+  <div class="page-wise-pagination-contianer align-items-center mt-1 d-flex justify-content-between">
+    <div class="pagination-out-off p-10 text-align-center">
+      Results: {{start==null ? 1 : start}} - {{last == null ? pageRecordLimit : last}} of {{jeoPardyLetterList.length}}
+    </div>
+
+    <!-- <div class="pagination-ngx"> -->
+        <div class="page-wise-pagination-contianer align-items-center">
+
+      <div class="inner-pagintion-contianer">
+        <pagination-controls class="inner-paginetion-container" 
+        aria-label="Default pagination" directionLinks="true" 
+        (pageChange)="p = $event;pageChanged($event)"></pagination-controls>
+      </div>
+
+    </div>
+    <div class="limit-pagination-contianer d-flex align-items-center">
+      <span>Select Records Per Page</span>
+      <select [(ngModel)]="pageRecordLimit"  class="form-control page-limit-dropdown w-100p">
+        <option *ngFor="let record of pageRecordLimitData" [ngValue]="record"> {{record}} </option>
+      </select>
+    </div>
+  </div>
+
+<div class="notification d-flex p-4 align-items-center justify-content-end text-success text-bold" *ngIf="notificationText" style="font-size:20x;">
+  {{notificationText}}
+</div>

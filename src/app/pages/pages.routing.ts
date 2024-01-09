@@ -3,8 +3,8 @@
 // import { PagesComponent } from './pages.component';
 // import { BlankComponent } from './blank/blank.component';
 // import { SearchComponent } from './search/search.component';
-// import { AboutComponent } from './about/about.component';
-
+ import { AboutComponent } from './about/about.component';
+import { GridComponent } from './grid/grid.component';
 // export const routes: Routes = [
 //     {
 //         path: '',
@@ -104,11 +104,11 @@ const routes: Routes = [
                 loadChildren: () => import('./dashboard/dashboard.module').then( d => d.DashboardModule), 
                 data: { breadcrumb: 'Home' } 
             },
-            // { 
-            //     path: 'paymentlookup', 
-            //     loadChildren: () => import('./payment-lookup/payment-lookup.module').then( d => d.PaymentLookupModule), 
-            //     data: { breadcrumb: 'Payment Lookup' } 
-           // },
+            { 
+                path: 'paymentlookup', 
+                loadChildren: () => import('./payment-lookup/payment-lookup.module').then( d => d.PaymentLookupModule), 
+                data: { breadcrumb: 'Payment Lookup' } 
+           },
 
            { 
             path: 'paymentcorrection', 
@@ -122,12 +122,44 @@ const routes: Routes = [
                 loadChildren:() => import('./reapply-payment/reapply-payment.module').then( r => r.ReapplyPaymentModule),
                 data: { breadcrumb: 'Reapply Payment' }
             },
-            // { path: 'elockboxExceptionList', loadChildren: 'app/pages/elockbox-exception-list/elockbox-exception-list.module#ElockboxExceptionListModule', data: { breadcrumb: 'eLockbox Exception List' } },
-            // {
-            //     path: 'elockboxExceptionList',
-            //     loadChildren:() => import('./elockbox-exception-list/elockbox-exception-list.module').then( r => r.ElockboxExceptionListModule),
-            //     data: { breadcrumb: 'eLockbox Exception List' }
-            // }
+            //{ path: 'reversalException', loadChildren: 'app/pages/reversal-exception/reversal-exception.module#ReversalExceptionModule', data: { breadcrumb: 'Return/Reversal Exception List' } },
+            {
+                path: 'reversalException',
+                loadChildren:() => import('./reversal-exception/reversal-exception.module').then( r => r.ReversalExceptionModule),
+                data: { breadcrumb: 'Return/Reversal Exception List' }
+            },
+
+            //{ path: 'elockboxExceptionList', loadChildren: 'app/pages/elockbox-exception-list/elockbox-exception-list.module#ElockboxExceptionListModule', data: { breadcrumb: 'eLockbox Exception List' } },
+            {
+                path: 'elockboxExceptionList',
+                loadChildren:() => import('./elockbox-exception-list/elockbox-exception-list.module').then( r => r.ElockboxExceptionListModule),
+                data: { breadcrumb: 'eLockbox Exception List' }
+            },
+
+            //             { path: 'help/batchNoAssignments', loadChildren: 'app/pages/help/batch-no-assignment/batch-no-assignment.module#BatchNoAssignmentsModule', data: { breadcrumb: 'Batch No Assignments' } },
+            {
+                path: 'help/batchNoAssignments',
+                loadChildren:() => import('./help/batch-no-assignment/batch-no-assignment.module').then( r => r.BatchNoAssignmentsModule),
+                data: { breadcrumb: 'Batch No Assignments' }
+            },
+
+//             { path: 'help/userGuide', loadChildren: 'app/pages/help/user-guide/user-guide.module#UserGuideModule', data: { breadcrumb: 'User Guide' } },
+{
+    path: 'help/userGuide',
+    loadChildren:() => import('./help/user-guide/user-guide.module').then( r => r.UserGuideModule),
+    data: { breadcrumb: 'User Guide' }
+},
+//             { path: 'preference', loadChildren: 'app/pages/preference/preference.module#PreferenceModule', data: { breadcrumb: 'Preferences' } }, { path: 'blank', component: BlankComponent, data: { breadcrumb: 'Blank page' } },
+// {
+//     path: 'preference',
+//     loadChildren:() => import('./preference/preference.module').then( r => r.PreferenceModule),
+//     data: { breadcrumb: 'Blank page' }
+// },
+            {path:'about', 
+            loadChildren:() => import('./grid/grid.module').then( r => r.GridModule),data:{breadcrumb:''}},
+            {path:'grid', component:GridComponent,data:{breadcrumb:''}},
+//             { path: 'search', component: SearchComponent, data: { breadcrumb: 'Search' } }
+
 
         ]
 

@@ -18,7 +18,11 @@ import { BackTopComponent } from '../theme/components/back-top/back-top.componen
 // import { BlankComponent } from './blank/blank.component';
 // import { SearchComponent } from './search/search.component';
 // import { NumberOnlyDirective } from './common-directive/number.directive';
-// import { AboutComponent } from './about/about.component';
+import { AboutComponent } from './about/about.component';
+import { GridComponent } from './grid/grid.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDatepickerPopupModule } from './common-component/ngb-date-picker/datepicker-popup.module';
+
 
 @NgModule({
   imports: [
@@ -26,7 +30,10 @@ import { BackTopComponent } from '../theme/components/back-top/back-top.componen
     PerfectScrollbarModule,
     // PerfectScrollbarModule.forRoot(PERFECT_SCROLLBAR_CONFIG),
     PagesRoutingModule,
+    NgbModule,
+    NgbDatepickerPopupModule
   ],
+  providers:[],
   declarations: [
     PagesComponent,
     HeaderComponent,
@@ -36,6 +43,7 @@ import { BackTopComponent } from '../theme/components/back-top/back-top.componen
     HorizontalMenuComponent,
     BreadcrumbComponent,
     BackTopComponent,
+    //GridComponent,
     // UserMenuComponent,
     // BlankComponent,
     // SearchComponent,

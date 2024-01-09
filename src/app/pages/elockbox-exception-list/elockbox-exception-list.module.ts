@@ -13,15 +13,28 @@ import { NgbDateFRParserFormatter } from "../common-directive/ngb-date-picker/ng
 import { ElockboxExceptionService } from './elockbox-exception.service';
 import { DownloadService } from '../_service/download-service';
 import { OrderModule } from 'ngx-order-pipe';
-export const routes: Routes = [
+export const routes:Routes = [
   { path: '', component: ElockboxExceptionListComponent, pathMatch: 'full' }
 ];
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
+    //NgbModule.forRoot(),
+    PerfectScrollbarModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgbDatepickerPopupModule,
+    OrderModule
   ],
   declarations: [ElockboxExceptionListComponent],
-  
+  providers: [
+    HelperCommonMethod,
+    TransactionRegisterService,
+    ElockboxExceptionService,
+    DownloadService,
+    AppCommons,
+    { provide: NgbDateParserFormatter, useClass: NgbDateFRParserFormatter },
+  ]
 })
 export class ElockboxExceptionListModule { }

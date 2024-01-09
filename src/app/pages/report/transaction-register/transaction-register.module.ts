@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { RouterModule,Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
@@ -10,7 +10,7 @@ import { NgbDatepickerPopup } from '../../common-component/ngb-date-picker/datep
 import { NgbDatepickerPopupModule } from '../../common-component/ngb-date-picker/datepicker-popup.module';
 import { SSRSReportViewerModule } from 'ngx-ssrs-reportviewer';
 
-export const routes = [
+export const routes:Routes = [
   { path: '', component: TransactionRegisterComponent, pathMatch: 'full' }
 ];
 

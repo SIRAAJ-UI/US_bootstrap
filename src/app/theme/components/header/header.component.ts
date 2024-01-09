@@ -100,10 +100,10 @@ export class HeaderComponent implements OnInit {
   public envType: any;
   public bindEnvType() {
     let URL = window.location.href;
-    if (URL.indexOf('taxtoolst') != -1 || URL.indexOf('localhost') != -1) {
+    if (URL.indexOf('taxtoolst') != -1) {
       this.envType = 'Test/QA'
     }
-    if (URL.indexOf('taxtoolsd') != -1) {
+    if (URL.indexOf('taxtoolsd') != -1 || URL.indexOf('localhost') != -1) {
       this.envType = 'Dev'
     }
     if (URL.indexOf('taxtoolsq') != -1) {
