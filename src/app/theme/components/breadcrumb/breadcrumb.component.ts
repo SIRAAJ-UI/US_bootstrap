@@ -7,7 +7,8 @@ import { Settings } from '../../../app.settings.model';
 @Component({
     selector: 'app-breadcrumb',
     encapsulation: ViewEncapsulation.None,
-    templateUrl: './breadcrumb.component.html'
+    templateUrl: './breadcrumb.component.html',
+    styleUrls: ['./breadcrumb.scss']
 })
 export class BreadcrumbComponent {
     public settings: Settings;

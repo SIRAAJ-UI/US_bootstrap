@@ -12,7 +12,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { PaginationComponent } from '../pagination/pagination.component';
 import { Ng2MultiSelectDropDownModule } from '../common-directive/ng-multiselect-dropdown/ng-multiselect-dropdown.module'
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PipesModule } from './filters/pipes.module';
 import { FieldErrorDisplayComponent } from  '../field-error-display/field-error-display.component';
 import { NgxPaginationModule } from 'ngx-pagination'; // <-- import the module
@@ -22,7 +21,6 @@ import { NgbDatepickerPopupModule } from '../common-component/ngb-date-picker/da
 import { CommonDirectivepModule } from '../common-directive/common-directive.module';
 import { NumberOnlyDirective } from '../common-directive/number.directive';
 import { PaymentLookupRoutingModule } from './payment-lookup.routing';
-import { NgbDatepickerModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
@@ -35,11 +33,9 @@ import { NgbDatepickerModule} from '@ng-bootstrap/ng-bootstrap';
     Ng2MultiSelectDropDownModule,
     MatRadioModule,MatCheckboxModule,
     MatFormFieldModule,
-    NgbModule,
     PipesModule,
     NgxPaginationModule,
     OrderModule,
-    NgbDatepickerModule,
     NgbDatepickerPopupModule,
     CommonDirectivepModule
   ],  

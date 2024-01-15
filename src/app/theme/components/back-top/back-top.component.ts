@@ -1,3 +1,4 @@
+import * as jQuery from 'jquery';
 import {Component, ViewEncapsulation, ViewChild, HostListener, Input, ElementRef} from '@angular/core';
 
 @Component({

@@ -39,7 +39,7 @@
             <label for="example-number-input" class="col-form-label">Install No.</label>
             <div class="block">
               <ng-multiselect-dropdown #ngMultiselect (focus)="ngMultiselect.toggleDropdown($event)" tabIndex="3" [placeholder]="'Select Install No.'"
-                [data]="installmentList" formControlName="selectedInstallmentItems" [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
+              [settings]="dropdownSettings" [data]="installmentList" formControlName="selectedInstallmentItems"  (onSelect)="onItemSelect($event)"
                 (onSelectAll)="onSelectAll($event)"></ng-multiselect-dropdown>
 
             </div>
@@ -66,10 +66,8 @@
               <span class="text-danger font-weight-bold">*</span>
             </label>
             <div class="input-group">
-              <ngb-datepicker-popup [tabIndex]="7" style="border-left: 5px solid #a94442;" [selectedDateKey]="transactionlNGModal['Payment_From']"
+              <ngb-datepicker-popup [tabIndex]="7" style="border-left: 5px solid #a94442;position: relative;" [selectedDateKey]="transactionlNGModal['Payment_From']"
                 controlName="transactionToData" [maxDateKey]="startCalenderDate" (clear)="clearNgModelValue()" (notify)="onTransactionDateSelectNotify($event,'Payment_From')"></ngb-datepicker-popup>
-
-
             </div>
             <app-field-error-display [displayError]="(isDateFormatWrong)" errorMsg="The required date format is: MM/DD/YYYY">
             </app-field-error-display>
@@ -100,7 +98,7 @@
           <label for="example-number-input" class="col-form-label"> Payment Status</label>
           <div class="block">
             <ng-multiselect-dropdown tabIndex="9" #ngMultiselectTOne (focus)="ngMultiselectTOne.toggleDropdown($event)" [placeholder]="'Select Payment Status'"
-              [data]="paymentStatusOption" [(ngModel)]="transactionlNGModal['Payment_Status']" [settings]="dropdownSettings"
+            [settings]="dropdownSettings" [data]="paymentStatusOption" [(ngModel)]="transactionlNGModal['Payment_Status']" 
               name="Payment_Status" (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)" [ngModelOptions]="{standalone: true}"></ng-multiselect-dropdown>
           </div>
         </div>
@@ -108,7 +106,7 @@
           <label for="example-number-input" class="col-form-label"> Payment Source</label>
           <div class="block">
             <ng-multiselect-dropdown #ngMultiselectTTwo (focus)="ngMultiselectTTwo.toggleDropdown($event)" tabIndex="10" [placeholder]="'Select Payment Source'"
-              [data]="paymentSourceList" [(ngModel)]="transactionlNGModal['payment_Source']" [settings]="dropdownSettings"
+            [settings]="dropdownSettings" [data]="paymentSourceList" [(ngModel)]="transactionlNGModal['payment_Source']" 
               (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)"></ng-multiselect-dropdown>
           </div>
         </div>
@@ -116,7 +114,7 @@
           <label for="example-number-input" class="col-form-label"> Tax Type</label>
           <div class="block">
             <ng-multiselect-dropdown #ngMultiselectTThree (focus)="ngMultiselectTThree.toggleDropdown($event)" tabIndex="11" [placeholder]="'Select Tax Type'"
-              [data]="taxTypeList" [(ngModel)]="transactionlNGModal['t_type']" [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
+            [settings]="dropdownSettings" [data]="taxTypeList" [(ngModel)]="transactionlNGModal['t_type']" (onSelect)="onItemSelect($event)"
               (onSelectAll)="onSelectAll($event)"></ng-multiselect-dropdown>
           </div>
         </div>
@@ -187,7 +185,7 @@
           <label for="example-number-input" class="col-form-label"> Payment Status</label>
           <div class="block">
             <ng-multiselect-dropdown #ngMultiselectCreditOne (focus)="ngMultiselectCreditOne.toggleDropdown($event)" tabIndex="16" [placeholder]="'Select Payment Status'"
-              [data]="paymentStatusOption" [(ngModel)]="creditNGModal['Payment_Status']" [settings]="dropdownSettings" name="Payment_Status"
+            [settings]="dropdownSettings" [data]="paymentStatusOption" [(ngModel)]="creditNGModal['Payment_Status']" name="Payment_Status"
               (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)" [ngModelOptions]="{standalone: true}"></ng-multiselect-dropdown>
           </div>
         </div>
@@ -195,7 +193,7 @@
           <label for="example-number-input" class="col-form-label"> Payment Source</label>
           <div class="block">
             <ng-multiselect-dropdown #ngMultiselectCreditTwo (focus)="ngMultiselectCreditTwo.toggleDropdown($event)" tabIndex="17" [placeholder]="'Select Payment Source'"
-              [data]="paymentSourceList" [(ngModel)]="creditNGModal['payment_Source']" [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
+            [settings]="dropdownSettings" [data]="paymentSourceList" [(ngModel)]="creditNGModal['payment_Source']"  (onSelect)="onItemSelect($event)"
               (onSelectAll)="onSelectAll($event)"></ng-multiselect-dropdown>
           </div>
         </div>
@@ -203,7 +201,7 @@
           <label for="example-number-input" class="col-form-label">Tax Type</label>
           <div class="block">
             <ng-multiselect-dropdown #ngMultiselectCreditThree (focus)="ngMultiselectCreditThree.toggleDropdown($event)" tabIndex="18"
-              [placeholder]="'Select Tax Type'" [data]="taxTypeList" [(ngModel)]="creditNGModal['t_type']" [settings]="dropdownSettings"
+            [settings]="dropdownSettings" [placeholder]="'Select Tax Type'" [data]="taxTypeList" [(ngModel)]="creditNGModal['t_type']" 
               (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)"></ng-multiselect-dropdown>
           </div>
         </div>
@@ -274,8 +272,8 @@
           <label for="example-number-input" class="col-form-label"> Payment Status</label>
           <div class="block">
             <ng-multiselect-dropdown #ngMultiselectDepositOne (focus)="ngMultiselectDepositOne.toggleDropdown($event)" tabIndex="23"
-              [placeholder]="'Select Payment Status'" [data]="paymentStatusOption" [(ngModel)]="depositNGModal['Payment_Status']"
-              [settings]="dropdownSettings" name="Payment_Status" (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)"
+              [placeholder]="'Select Payment Status'" [settings]="dropdownSettings"  [data]="paymentStatusOption" [(ngModel)]="depositNGModal['Payment_Status']"
+              name="Payment_Status" (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)"
               [ngModelOptions]="{standalone: true}"></ng-multiselect-dropdown>
           </div>
         </div>
@@ -283,15 +281,15 @@
           <label for="example-number-input" class="col-form-label"> Payment Source</label>
           <div class="block">
             <ng-multiselect-dropdown #ngMultiselectDepositTwo (focus)="ngMultiselectDepositTwo.toggleDropdown($event)" tabIndex="24"
-              [placeholder]="'Select Payment Source'" [data]="paymentSourceList" [(ngModel)]="depositNGModal['payment_Source']"
-              [settings]="dropdownSettings" (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)"></ng-multiselect-dropdown>
+              [placeholder]="'Select Payment Source'" [settings]="dropdownSettings" [data]="paymentSourceList" [(ngModel)]="depositNGModal['payment_Source']"
+              (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)"></ng-multiselect-dropdown>
           </div>
         </div>
         <div class="col-md-2 col-sm-3 col-xs-12 col-lg-2">
           <label for="example-number-input" class="col-form-label"> Tax Type</label>
           <div class="block">
             <ng-multiselect-dropdown #ngMultiselectDepositThree (focus)="ngMultiselectDepositThree.toggleDropdown($event)" tabIndex="25"
-              [placeholder]="'Select Tax Type'" [data]="taxTypeList" [(ngModel)]="depositNGModal['t_type']" [settings]="dropdownSettings"
+              [placeholder]="'Select Tax Type'" [settings]="dropdownSettings" [data]="taxTypeList" [(ngModel)]="depositNGModal['t_type']" 
               (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)"></ng-multiselect-dropdown>
           </div>
         </div>
@@ -322,8 +320,8 @@
     </h5>
     <div class="row table-filter-wrapper">
       <div class="col-md-2 col-sm-4 col-xs-12 ">
-        <ng-multiselect-dropdown #searchTableHeader [placeholder]="'Select column'" [data]="filterTableHeaderData" tabIndex="28"
-          [(ngModel)]="selectedtableHeader" [settings]="dropdownSingleSelectSettings" (onSelect)="onHeaderSelect($event)"></ng-multiselect-dropdown>
+        <ng-multiselect-dropdown #searchTableHeader [placeholder]="'Select column'" [settings]="dropdownSingleSelectSettings" [data]="filterTableHeaderData" tabIndex="28"
+          [(ngModel)]="selectedtableHeader" (onSelect)="onHeaderSelect($event)"></ng-multiselect-dropdown>
       </div>
       <div class="col-md-9 col-sm-8 col-xs-12 ">
         <div class="row">
@@ -345,34 +343,34 @@
             <input name="total-Amount" *ngIf="selectedHeaderItem=='totalAmount' || selectedHeaderItem=='interestAmount' ||selectedHeaderItem=='taxAmountPaid' || selectedHeaderItem=='penaltyAmount' || selectedHeaderItem=='costAmount' || selectedHeaderItem=='returnCheckFee'"
               [(ngModel)]="totalAmountKey" #totalAmount="ngModel" class="form-control" required type="text" placeholder="Enter Amount">
             <ng-multiselect-dropdown #installNumber tabIndex="29" *ngIf="selectedHeaderItem=='installNo'" [placeholder]="'Select Install No.'"
-              [data]="installmentList" [(ngModel)]="searchInstallmentSearchKey" [settings]="dropdownSingleSelectSettings" (onSelect)="onItemSelect($event)"></ng-multiselect-dropdown>
+            [settings]="dropdownSingleSelectSettings" [data]="installmentList" [(ngModel)]="searchInstallmentSearchKey" (onSelect)="onItemSelect($event)"></ng-multiselect-dropdown>
             <ng-multiselect-dropdown #paymentSatus tabIndex="30" *ngIf="selectedHeaderItem=='paymentStatus'" [placeholder]="'Select Status'"
-              [data]="paymentStatusOption" [(ngModel)]="paymentStatusSearchKey" [settings]="dropdownSingleSelectSettings" (onSelect)="onItemSelect($event)"></ng-multiselect-dropdown>
+            [settings]="dropdownSingleSelectSettings" [data]="paymentStatusOption" [(ngModel)]="paymentStatusSearchKey" (onSelect)="onItemSelect($event)"></ng-multiselect-dropdown>
             <!-- <ng-multiselect-dropdown *ngIf="selectedHeaderItem=='reason'" [placeholder]="'Select Correction'" [data]="reasonData" [(ngModel)]="paymentReasonSearchKey"
               [settings]="dropdownSingleSelectSettings" (onSelect)="onItemSelect($event)"></ng-multiselect-dropdown> -->
             <ng-multiselect-dropdown #sourseList tabIndex="31" *ngIf="selectedHeaderItem=='paymentSource'" [placeholder]="'Select Source'"
-              [data]="paymentSourceList" [(ngModel)]="paymentSourceSearchKey" [settings]="dropdownSingleSelectSettings" (onSelect)="onItemSelect($event)"></ng-multiselect-dropdown>
-            <ng-multiselect-dropdown #taxType tabIndex="32" *ngIf="selectedHeaderItem=='taxType'" [placeholder]="'Select Tax Type'" [data]="taxTypeList"
-              [(ngModel)]="paymentTaxTypeSearchKey" [settings]="dropdownSingleSelectSettings" (onSelect)="onItemSelect($event)"></ng-multiselect-dropdown>
+            [settings]="dropdownSingleSelectSettings" [data]="paymentSourceList" [(ngModel)]="paymentSourceSearchKey"  (onSelect)="onItemSelect($event)"></ng-multiselect-dropdown>
+            <ng-multiselect-dropdown #taxType tabIndex="32" *ngIf="selectedHeaderItem=='taxType'" [placeholder]="'Select Tax Type'" [settings]="dropdownSingleSelectSettings" [data]="taxTypeList"
+              [(ngModel)]="paymentTaxTypeSearchKey"  (onSelect)="onItemSelect($event)"></ng-multiselect-dropdown>
 
             <ng-multiselect-dropdown #paymentMethod tabIndex="33" *ngIf="selectedHeaderItem=='paymentMethod'" [placeholder]="'Select Method'"
-              [data]="paymentMethodData" [(ngModel)]="paymentMethodSearchKey" [settings]="dropdownSingleSelectSettings" (onSelect)="onItemSelect($event)"></ng-multiselect-dropdown>
+            [settings]="dropdownSingleSelectSettings" [data]="paymentMethodData" [(ngModel)]="paymentMethodSearchKey" (onSelect)="onItemSelect($event)"></ng-multiselect-dropdown>
 
             <ng-multiselect-dropdown #methodType tabIndex="33" *ngIf="selectedHeaderItem=='methodType'" [placeholder]="'Select Method'"
-              [data]="methodTypeDate" [(ngModel)]="methodTypeSearchKey" [settings]="dropdownSingleSelectSettings" (onSelect)="onItemSelect($event)"></ng-multiselect-dropdown>
+            [settings]="dropdownSingleSelectSettings" [data]="methodTypeDate" [(ngModel)]="methodTypeSearchKey" (onSelect)="onItemSelect($event)"></ng-multiselect-dropdown>
 
             <ng-multiselect-dropdown #supplementalType tabIndex="33" *ngIf="selectedHeaderItem=='supplementalType'" [placeholder]="'Supplemental Type'"
-              [data]="supplementalTypeDate" [(ngModel)]="supplementalTypeSearchKey" [settings]="dropdownSingleSelectSettings"
+            [settings]="dropdownSingleSelectSettings" [data]="supplementalTypeDate" [(ngModel)]="supplementalTypeSearchKey" 
               (onSelect)="onItemSelect($event)"></ng-multiselect-dropdown>
             <ng-multiselect-dropdown #agencyName tabIndex="34" *ngIf="selectedHeaderItem=='batchAgencyName'" [placeholder]="'Select Batch Agency Name'"
-              [data]="batchAgencyList" [(ngModel)]="batchAgencySearchKey" [settings]="dropdownSingleSelectSettings" (onSelect)="onItemSelect($event)"></ng-multiselect-dropdown>
+            [settings]="dropdownSingleSelectSettings" [data]="batchAgencyList" [(ngModel)]="batchAgencySearchKey" (onSelect)="onItemSelect($event)"></ng-multiselect-dropdown>
 
           </div>
           <div class="col-md-2 col-sm-4 col-xs-12" *ngIf="(selectedHeaderItem=='taxAmountPaid' ||  selectedHeaderItem=='taxBillFiscalYear'|| selectedHeaderItem=='ncrSequenceNo' || selectedHeaderItem=='penaltyAmount' || selectedHeaderItem=='totalAmount' || selectedHeaderItem=='createdBy'|| selectedHeaderItem =='batchNo' || selectedHeaderItem=='apn' || selectedHeaderItem=='tracerNo' || selectedHeaderItem=='tellerNo' || selectedHeaderItem=='reason' || selectedHeaderItem=='installNo' ||  selectedHeaderItem=='totalAmount' || selectedHeaderItem=='interestAmount'  || selectedHeaderItem=='paymentFiscalYear' || selectedHeaderItem=='checkNo' || selectedHeaderItem=='costAmount') && selectedtableHeader!=''">
 
             <ng-multiselect-dropdown tabIndex="35" #filterSign *ngIf="selectedHeaderItem=='totalAmount' || selectedHeaderItem=='taxAmountPaid'|| selectedHeaderItem=='penaltyAmount' || selectedHeaderItem=='interestAmount' || selectedHeaderItem=='costAmount'"
-              [placeholder]="'Select Sign'" [data]="selectResultConditon" (onSelect)="filterTotalAmountData($event,totalAmountKey,'dropdown',selectedHeaderItem)"
-              [(ngModel)]="selectedSignKey" [settings]="dropdownSingleSelectSettings"></ng-multiselect-dropdown>
+              [placeholder]="'Select Sign'" [settings]="dropdownSingleSelectSettings" [data]="selectResultConditon" (onSelect)="filterTotalAmountData($event,totalAmountKey,'dropdown',selectedHeaderItem)"
+              [(ngModel)]="selectedSignKey" ></ng-multiselect-dropdown>
             <input name="ncr-no" *ngIf="selectedHeaderItem=='ncrSequenceNo'" [(ngModel)]="ncrNoSearchKey" #ncrNumber="ngModel" class="form-control"
               required type="text" placeholder="">
             <input name="tax-bill-year" *ngIf="selectedHeaderItem=='taxBillFiscalYear'" [(ngModel)]="taxBillYearSearchKey" #taxBillYear="ngModel"

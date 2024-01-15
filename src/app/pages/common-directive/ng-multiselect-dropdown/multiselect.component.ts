@@ -48,21 +48,20 @@ const noop = () => {};
               <div [class.disabled]="disabled">
                 <span class="btn" *ngIf="_settings.singleSelection==false">
                  <span class="placeholder-item" *ngIf="selectedItems.length == 0">{{placeholder}}</span> 
-                //  [hidden]="(k > _settings.itemsShowLimit-1)" 
-               <span class="selected-item" *ngFor="let item of selectedItems;trackBy: trackByFn;let k = index"; >{{item.text}} <a style="padding-top:2px;padding-left:2px;color:white" (click)="onItemClick($event,item)">x</a> </span>
+                
+                <span class="selected-item" *ngFor="let item of selectedItems;trackBy: trackByFn;let k = index"; >{{item.text}} <a style="padding-top:2px;padding-left:2px;color:white" (click)="onItemClick($event,item)">x</a> </span>
                     <span style="float:right !important;padding-right:4px"><span (mouseover)="showSelectedItem()" (mouseleave)="hideSelectedItem()" class="selected-item-wrapper" style="padding-right: 6px;cursor:pointer" *ngIf="itemShowRemaining()>0">+{{itemShowRemaining()}}</span>
                     <span [ngClass]="isDropdownOpen ? 'fa fa-angle-up' : 'fa fa-angle-down'"></span>
-                  </span> 
-</span>    
+                  </span>
+                </span>    
 
-                  <span class="btn" (click)="toggleDropdown($event)"  *ngIf="_settings.singleSelection"> 
-                  <span class="placeholder-item" *ngIf="selectedItems.length == 0">{{placeholder}}</span> 
-                  // [hidden]="(k > _settings.itemsShowLimit-1)"
+                <span class="btn" (click)="toggleDropdown($event)"  *ngIf="_settings.singleSelection"> 
+                <span class="placeholder-item" *ngIf="selectedItems.length == 0">{{placeholder}}</span> 
+              
                     <span class="selected-item" *ngFor="let item of selectedItems;trackBy: trackByFn;let k = index"; >{{item.text}} <a style="padding-top:2px;padding-left:2px;color:white" (click)="onItemClick($event,item)">x</a> </span>
                     <span style="float:right !important;padding-right:4px"><span (mouseover)="showSelectedItem()" (mouseleave)="hideSelectedItem()" class="selected-item-wrapper" style="padding-right: 6px;cursor:pointer" *ngIf="itemShowRemaining()>0">+{{itemShowRemaining()}}</span>
                     <span *ngIf="!disabled" [ngClass]="isDropdownOpen ? 'fa fa-angle-up' : 'fa fa-angle-down'"></span>
-                  </span>
-
+                </span>
               </span>
             </div>
             
@@ -316,6 +315,8 @@ export class MultiSelectComponent implements OnInit, ControlValueAccessor {
       this.selectedItems.push(item);
     }
     this.onChangeCallback(this.emittedValue(this.selectedItems));
+    console.log("item");
+    console.log(item);
     this.onSelect.emit(this.emittedValue(item));
   }
 

@@ -27,16 +27,16 @@
               <td class="align-middle text-truncate">{{fromTracer.tracerNo}}</td>
               <td class="align-middle text-truncate">{{fromTracer.installNo}}</td>
               <td class="align-middle text-truncate"><!-- {{fromTracer.transactionDate | date: 'MM/dd/yyyy'}} -->
-                  <span *ngIf="fromTracer.transactionDate.includes('0001-01-01')"></span>
-                  <span *ngIf="!fromTracer.transactionDate.includes('0001-01-01')"> 
-                    {{fromTracer.transactionDate | date: 'MM/dd/yyyy'}}
-                    </span>
+                <span *ngIf="fromTracer.transactionDate.includes('0001-01-01')"></span>
+                <span *ngIf="!fromTracer.transactionDate.includes('0001-01-01')">
+                  {{fromTracer.transactionDate | date: 'MM/dd/yyyy'}}
+                </span>
               </td>
               <td class="align-middle text-truncate"><!-- {{fromTracer.creditDate | date: 'MM/dd/yyyy'}}-->
                 <span *ngIf="fromTracer.creditDate.includes('0001-01-01')"></span>
-                <span *ngIf="!fromTracer.creditDate.includes('0001-01-01')"> 
+                <span *ngIf="!fromTracer.creditDate.includes('0001-01-01')">
                   {{fromTracer.creditDate | date: 'MM/dd/yyyy'}}
-                  </span>
+                </span>
               </td>
               <td class="align-middle text-truncate">{{fromTracer.paymentStatus}}</td>
               <td class="align-middle text-truncate text-right">{{fromTracer.taxAmountPaid | number : '1.2-2'}}</td>
@@ -48,7 +48,8 @@
             </tr>
 
             <tr>
-              <td colspan="7" class="align-middle text-truncate text-right">Total $&nbsp;{{fromTotalAmount | number : '1.2-2'}}</td>
+              <td colspan="7" class="align-middle text-truncate text-right">Total $&nbsp;{{fromTotalAmount | number :
+                '1.2-2'}}</td>
               <td class="align-middle text-truncate">
 
               </td>
@@ -64,14 +65,15 @@
               <label class="form-control-label">Roll year
                 <span class="reistricted-field text-danger font-weight-bold">*</span>
               </label>
-              <input type="text" class="form-control  w-dynamic" placeholder="" name="roll_year" [(ngModel)]="fromTracer.roll_year" #roll_year="ngModel"
-                minlength="4" pattern="[0-9]+" maxlength="4" required>
-              <div class=" form-alert" *ngIf="(roll_year.touched) && roll_year.errors['required']">Roll Year is required
+              <input type="text" class="form-control  w-dynamic" placeholder="" name="roll_year"
+                [(ngModel)]="fromTracer.roll_year" #roll_year="ngModel" minlength="4" pattern="[0-9]+" maxlength="4"
+                required>
+              <div class=" form-alert" *ngIf="(roll_year.touched) && roll_year.errors?.required">Roll Year is required
               </div>
-              <div *ngIf="roll_year.errors['pattern']">
+              <div *ngIf="roll_year.errors?.pattern">
                 Enter Valid roll year
               </div>
-              <div class=" form-alert" *ngIf="roll_year.errors['minlength']">
+              <div class=" form-alert" *ngIf="roll_year.errors?.minlength">
                 Invalid year,not lesss than 4, numeric
               </div>
             </div>
@@ -80,8 +82,8 @@
                 <span class="reistricted-field text-danger font-weight-bold">*</span>
               </label>
               <!-- [appFocus]="true" -->
-              <input type="text" name="tracer_no" [(ngModel)]="fromTracer.tracer_no" #tracer_no="ngModel" class="form-control" maxlength="8" #focus
-                numericOnly (ngModelChange)="hideMsg('form')"  required>
+              <input type="text" name="tracer_no" [(ngModel)]="fromTracer.tracer_no" #tracer_no="ngModel"
+                class="form-control" maxlength="8" #focus numericOnly (ngModelChange)="hideMsg('form')" required>
               <div class="text-failed  float-left" *ngIf="fromTracerError">
                 {{fromTracerError}}
               </div>
@@ -90,7 +92,8 @@
               <label class="form-control-label">Install No.
                 <span class="reistricted-field text-danger font-weight-bold">*</span>
               </label>
-              <select class="form-control" name="install_no" [(ngModel)]="fromTracer.install_no" #install_no="ngModel" required>
+              <select class="form-control" name="install_no" [(ngModel)]="fromTracer.install_no" #install_no="ngModel"
+                required>
                 <option [ngValue]="undefined" disabled selected>select Install No</option>
                 <option *ngFor="let install of installmentType" [value]="install.item_id">{{install.item_text}}</option>
               </select>
@@ -98,7 +101,8 @@
           </div>
           <div class="col-6">
             <div class="mt-4 d-flex justify-content-end">
-              <button class="btn btn-primary w-100p p-05" [disabled]="fromTracerForm.invalid" (click)="getFromTracerPaymentDetail(fromTracer)">Add</button>
+              <button class="btn btn-primary w-100p p-05" [disabled]="fromTracerForm.invalid"
+                (click)="getFromTracerPaymentDetail(fromTracer)">Add</button>
             </div>
           </div>
 
@@ -126,7 +130,7 @@
               <th>Penalty Amount </th>
               <th>Interest Amount</th>
               <th>Cost Amount </th>
-              <th>Total Amount Due  </th>
+              <th>Total Amount Due </th>
               <th>Delete</th>
             </tr>
           </thead>
@@ -147,12 +151,12 @@
                 </button>
               </td>
 
-              <tr>
-                <td colspan="8" class="align-middle text-truncate text-right">Total $&nbsp;{{toTotalAmount}}</td>
-                <td class="align-middle text-truncate">
+            <tr>
+              <td colspan="8" class="align-middle text-truncate text-right">Total $&nbsp;{{toTotalAmount}}</td>
+              <td class="align-middle text-truncate">
 
-                </td>
-              </tr>
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -166,14 +170,16 @@
               <!-- <select class="form-control" name="roll_year" [(ngModel)]="toTracer.roll_year" #roll_year="ngModel">
                                 <option *ngFor="let year of taxRollYearList" [value]="year.item_id">{{year.item_text}}</option>
                             </select> -->
-              <input type="text" class="form-control  w-dynamic" placeholder="" name="roll_year" [(ngModel)]="toTracer.roll_year" #toroll_year="ngModel"
-                minlength="4" maxlength="4" required pattern="[0-9]+">
-              <div class=" form-alert" *ngIf="(toroll_year.touched) && toroll_year.errors['required']">Roll Year is required
+              <input type="text" class="form-control  w-dynamic" placeholder="" name="roll_year"
+                [(ngModel)]="toTracer.roll_year" #toroll_year="ngModel" minlength="4" maxlength="4" required
+                pattern="[0-9]+">
+              <div class=" form-alert" *ngIf="(toroll_year.touched) && toroll_year.errors?.required">Roll Year is
+                required
               </div>
-              <div *ngIf="toroll_year.errors['pattern']">
+              <div *ngIf="toroll_year.errors?.pattern">
                 Enter Valid roll year
               </div>
-              <div class=" form-alert" *ngIf="toroll_year.errors['minlength']">
+              <div class=" form-alert" *ngIf="toroll_year.errors?.minlength">
                 Invalid year,not lesss than 4, numeric
               </div>
             </div>
@@ -182,8 +188,8 @@
                 <span class="reistricted-field text-danger font-weight-bold">*</span>
               </label>
 
-              <input type="text" name="tracer_no" [(ngModel)]="toTracer.tracer_no" #tracer_no="ngModel" class="form-control" maxlength="8"
-                numericOnly (ngModelChange)="hideMsg('to')" required>
+              <input type="text" name="tracer_no" [(ngModel)]="toTracer.tracer_no" #tracer_no="ngModel"
+                class="form-control" maxlength="8" numericOnly (ngModelChange)="hideMsg('to')" required>
               <div class="text-failed  float-left" *ngIf="toTracerError">
                 {{toTracerError}}
               </div>
@@ -192,7 +198,8 @@
               <label class="form-control-label">Install No.
                 <span class="reistricted-field text-danger font-weight-bold">*</span>
               </label>
-              <select class="form-control" name="install_no" [(ngModel)]="toTracer.install_no" #install_no="ngModel" required>
+              <select class="form-control" name="install_no" [(ngModel)]="toTracer.install_no" #install_no="ngModel"
+                required>
                 <option [ngValue]="undefined" disabled selected>select Install No</option>
                 <option *ngFor="let install of installmentType" [value]="install.item_id">{{install.item_text}}</option>
               </select>
@@ -200,7 +207,8 @@
           </div>
           <div class="col-6">
             <div class="mt-4 d-flex justify-content-end">
-              <button class="btn btn-primary w-100p p-05" (click)="getToTracerPaymentDetail(toTracer)" [disabled]="toTracerForm.invalid">Add</button>
+              <button class="btn btn-primary w-100p p-05" (click)="getToTracerPaymentDetail(toTracer)"
+                [disabled]="toTracerForm.invalid">Add</button>
             </div>
             <!-- <div class="text-failed  float-right" *ngIf="toTracerError">
                                     {{toTracerError}}
@@ -209,29 +217,31 @@
         </div>
       </form>
     </div>
-    
+
   </div>
 </div>
 <div class="tax-total-container float-none mb-3 mt-3">
   <div class="col-10" *ngIf="isPaymentReapplySavedFlag">
-      {{successMsg}}  
-    </div>
+    {{successMsg}}
+  </div>
 
   <div class="col-md-4 col-sm-10 col-xs-1244 float-right">
     <div>
-        <span class="label-control font-weight-bold">Difference(From - To):</span>
-        <span class="total-control" [ngClass]="{'negative':(fromTotalAmount - toTotalAmount)<0}">${{fromTotalAmount - toTotalAmount  | number : '1.2-2'}}</span>
+      <span class="label-control font-weight-bold">Difference(From - To):</span>
+      <span class="total-control" [ngClass]="{'negative':(fromTotalAmount - toTotalAmount)<0}">${{fromTotalAmount -
+        toTotalAmount | number : '1.2-2'}}</span>
     </div>
     <div class="pt-2">
-        <input type="checkbox" [(ngModel)]="waivePenaltiesStatus"/> Waive Penalties
+      <input type="checkbox" [(ngModel)]="waivePenaltiesStatus" /> Waive Penalties
     </div>
-   
+
   </div>
-  <div  class="col-md-12 col-sm-12 col-xs-1244 float-right d-flex justify-content-end">
-   
-    <button  class="btn btn-primary w-100p p-05" [disabled]="!(fromTracerResponse?.length > 0 && toTracerResponse?.length > 0) || successMsg" 
+  <div class="col-md-12 col-sm-12 col-xs-1244 float-right d-flex justify-content-end">
+
+    <button class="btn btn-primary w-100p p-05"
+      [disabled]="!(fromTracerResponse?.length > 0 && toTracerResponse?.length > 0) || successMsg"
       (click)="saveDetail()">Save</button>
-    </div>
+  </div>
 </div>
-<!-- {{fromTracerResponse?.length }} -->  
-    <!-- [disabled]="(fromTracerResponse.length < 0 || toTracerResponse.length < 0)" -->
+<!-- {{fromTracerResponse?.length }} -->
+<!-- [disabled]="(fromTracerResponse.length < 0 || toTracerResponse.length < 0)" -->

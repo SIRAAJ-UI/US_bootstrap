@@ -1,5 +1,4 @@
 import {Component,ElementRef,ViewChild,Input,Output,EventEmitter} from '@angular/core';
-import { Subject }    from 'rxjs';
 @Component({
   selector: 'ngb-datepicker-popup',
   host: {

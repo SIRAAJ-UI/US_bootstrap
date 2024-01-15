@@ -11,13 +11,13 @@
         <!-- <select class="form-control w-dynamic"  name="rollYear"  [(ngModel)]="search.rollYear" #rollYear="ngModel" required>
                     <option *ngFor="let item of rollYearList" [value]="item.item_id">{{item.item_text}}</option>
                   </select> -->
-        <div class=" form-alert" *ngIf="(rollYear.touched) && rollYear.errors['required']">Roll Year is required
+        <div class=" form-alert" *ngIf="(rollYear.touched) && rollYear.errors?.required">Roll Year is required
         </div>
         {{rollYear.errors}}
-        <div *ngIf="rollYear.errors['pattern']">
+        <div *ngIf="rollYear.errors?.pattern">
           Enter Valid roll year
         </div>
-        <div class=" form-alert" *ngIf="rollYear.errors['minlength']">
+        <div class=" form-alert" *ngIf="rollYear.errors?.minlength">
           Invalid year,not lesss than 4, numeric
         </div>
 
@@ -28,7 +28,7 @@
         </label>
         <input type="text" class="form-control  w-dynamic" placeholder="" name="tracerNo" [(ngModel)]="search.tracerNo" #tracerNo="ngModel"
           maxlength="8" required>
-        <div class=" form-alert" *ngIf="(tracerNo.touched) && tracerNo.errors['required']">{{infoAlertMessages.tracer_req}}</div>
+        <div class=" form-alert" *ngIf="(tracerNo.touched) && tracerNo.errors?.required">{{infoAlertMessages.tracer_req}}</div>
       </div>
 
       <div class="form-group  col-md-2 ol-sm-2 col-xs-12">
@@ -44,7 +44,7 @@
           <option *ngFor="let install of installmentType" [value]="install.item_id">{{install.item_text}}</option>
         </select>
         <!-- <input type="text" class="form-control" placeholder="" name="installNo"  [(ngModel)]="search.installNo" #installNo="ngModel" maxlength="1" required> -->
-        <div class=" form-alert" *ngIf="(installNo.touched) && installNo.errors['required']">Install No. is required</div>
+        <div class=" form-alert" *ngIf="(installNo.touched) && installNo.errors?.required">Install No. is required</div>
       </div>
       <div class="col-3 control-block-container payment-correction-button">
         <button class="btn btn-primary w-100p p-05" [disabled]="searchForm.invalid" (click)="getPaymentCorrectionSearchResult(search)">Search</button>
@@ -233,7 +233,7 @@
     <button class="btn btn-primary w-100p p-05 float-right" [disabled]="isSaveButtonDisable" (click)="savePaymentDetail(paymentCorrectionResponse)">Save</button>
 
   </div>
-  <div class="payment-stub-block pt-3" *ngIf="paymentCorrectionResponse['paymentCorrectionLinks'] && paymentCorrectionResponse['paymentCorrectionLinks'].length">
+  <div class="payment-stub-block pt-3" *ngIf="paymentCorrectionResponse?.paymentCorrectionLinks && paymentCorrectionResponse?.paymentCorrectionLinks.length">
     <fieldset>
       <legend class="legend-border">Other Stub(s) Linked to Payment</legend>
 
@@ -258,7 +258,7 @@
               <th>Total Amount</th>
             </thead>
             <tbody>
-              <tr *ngFor="let paymentCorrectionLink of paymentCorrectionResponse['paymentCorrectionLinks']">
+              <tr *ngFor="let paymentCorrectionLink of paymentCorrectionResponse?.paymentCorrectionLinks">
                 <td>{{paymentCorrectionLink.transactionDate | date: 'MM/dd/yyyy'}}</td>
                 <td>{{paymentCorrectionLink.creditDate | date:'MM/dd/yyyy'}}</td>
                 <td>{{paymentCorrectionLink.paymentStatus}}</td>

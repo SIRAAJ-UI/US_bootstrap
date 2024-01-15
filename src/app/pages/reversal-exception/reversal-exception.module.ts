@@ -18,7 +18,7 @@ export const routes:Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    //NgbModule.forRoot(),
+    NgbModule,
     NgbDatepickerPopupModule,
     FormsModule,
     OrderModule

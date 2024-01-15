@@ -5,10 +5,10 @@
         <label class="col-form-label">Exception From Date
           <span class="text-danger font-weight-bold" aria-required="true">*</span>
         </label>
-        <ngb-datepicker-popup [tabIndex]="1" [selectedDateKey]="searchModel['exceptionFromDate']" controlName="exceptionFromDate"
+        <ngb-datepicker-popup [tabIndex]="1" [selectedDateKey]="searchModel?.exceptionFromDate" controlName="exceptionFromDate"
           [maxDateKey]="startCalenderDate"  (notify)="onDateSelected($event, 'from_date')"></ngb-datepicker-popup>
           <div class="error-section">
-          <ng-container *ngIf="(isMandatoryWrong && !searchModel['exceptionFromDate'])" >
+          <ng-container *ngIf="(isMandatoryWrong && !searchModel?.exceptionFromDate)" >
               From Date is a required field
           </ng-container>
           <ng-container *ngIf="isFromDate" >
@@ -20,8 +20,8 @@
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <div class="to-date">
         <label class="col-form-label">Exception To Date</label>
-        <ngb-datepicker-popup [tabIndex]="2" [selectedDateKey]="searchModel['exceptionToDate']" controlName="exceptionToDate" [maxDateKey]="startCalenderDate"
-          [minDateKey]="searchModel['exceptionFromDate']"  (notify)="onDateSelected($event, 'to_date')"></ngb-datepicker-popup>
+        <ngb-datepicker-popup [tabIndex]="2" [selectedDateKey]="searchModel?.exceptionToDate" controlName="exceptionToDate" [maxDateKey]="startCalenderDate"
+          [minDateKey]="searchModel?.exceptionFromDate" (notify)="onDateSelected($event, 'to_date')"></ngb-datepicker-popup>
           <div class="error-section">
               <ng-container *ngIf="isToDate" >
                   To Date cannot be a future date

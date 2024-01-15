@@ -3,6 +3,7 @@ import { Router, NavigationEnd } from '@angular/router';
 import { MenuService } from '../menu.service';
 import { AppSettings } from '../../../../app.settings';
 import { Settings } from '../../../../app.settings.model';
+import * as jQuery from 'jquery';
 
 @Component({
   selector: 'app-horizontal-menu',
@@ -25,7 +26,8 @@ export class HorizontalMenuComponent implements OnInit {
               window.scrollTo(0, 0);
               let activeLink = this.menuService.getActiveLink(this.menuItems);
               this.menuService.setActiveLink(this.menuItems, activeLink); 
-              (jQuery('.tooltip') as any).tooltip('hide');  
+              // ($('.tooltip') as any).tooltip('hide');  
+              // $('.tooltip').tooltip('hide');
           }                
       }); 
   }
