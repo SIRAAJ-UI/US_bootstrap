@@ -1,24 +1,14 @@
 import {
   Component,
   OnInit,
-  NgModule,
   HostListener,
-  OnChanges,
-  ViewEncapsulation,
   forwardRef,
   Input,
   Output,
   EventEmitter,
-  ElementRef,
-  AfterViewInit,
-  Pipe,
-  PipeTransform
 } from '@angular/core';
-import { FormsModule, NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { ListItem, MyException } from './multiselect.model';
-import { ClickOutsideDirective } from './click-outside.directive';
-import { ListFilterPipe } from './list-filter.pipe';
+import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+import { ListItem } from './multiselect.model';
 
 export interface DropdownSettings {
   singleSelection: Boolean;
@@ -40,7 +30,7 @@ export const DROPDOWN_CONTROL_VALUE_ACCESSOR: any = {
   useExisting: forwardRef(() => MultiSelectComponent),
   multi: true
 };
-const noop = () => {};
+const noop = () => { };
 
 @Component({
   selector: 'ng-multiselect-dropdown',
@@ -49,19 +39,20 @@ const noop = () => {};
                 <span class="btn" *ngIf="_settings.singleSelection==false">
                  <span class="placeholder-item" *ngIf="selectedItems.length == 0">{{placeholder}}</span> 
                 
-                <span class="selected-item" *ngFor="let item of selectedItems;trackBy: trackByFn;let k = index"; >{{item.text}} <a style="padding-top:2px;padding-left:2px;color:white" (click)="onItemClick($event,item)">x</a> </span>
+                <span class="selected-item" *ngFor="let item of selectedItems;trackBy: trackByFn;let k = index;">{{item.text}} <a style="padding-top:2px;padding-left:2px;color:white" (click)="onItemClick($event,item)">x</a> </span>
                     <span style="float:right !important;padding-right:4px"><span (mouseover)="showSelectedItem()" (mouseleave)="hideSelectedItem()" class="selected-item-wrapper" style="padding-right: 6px;cursor:pointer" *ngIf="itemShowRemaining()>0">+{{itemShowRemaining()}}</span>
                     <span [ngClass]="isDropdownOpen ? 'fa fa-angle-up' : 'fa fa-angle-down'"></span>
                   </span>
                 </span>    
 
                 <span class="btn" (click)="toggleDropdown($event)"  *ngIf="_settings.singleSelection"> 
+                
                 <span class="placeholder-item" *ngIf="selectedItems.length == 0">{{placeholder}}</span> 
-              
-                    <span class="selected-item" *ngFor="let item of selectedItems;trackBy: trackByFn;let k = index"; >{{item.text}} <a style="padding-top:2px;padding-left:2px;color:white" (click)="onItemClick($event,item)">x</a> </span>
+                    <span class="selected-item" *ngFor="let item of selectedItems;trackBy: trackByFn;let k = index;">{{item.text}} <a style="padding-top:2px;padding-left:2px;color:white" (click)="onItemClick($event,item)">x</a> </span>
                     <span style="float:right !important;padding-right:4px"><span (mouseover)="showSelectedItem()" (mouseleave)="hideSelectedItem()" class="selected-item-wrapper" style="padding-right: 6px;cursor:pointer" *ngIf="itemShowRemaining()>0">+{{itemShowRemaining()}}</span>
                     <span *ngIf="!disabled" [ngClass]="isDropdownOpen ? 'fa fa-angle-up' : 'fa fa-angle-down'"></span>
                 </span>
+
               </span>
             </div>
             
@@ -97,7 +88,7 @@ export class MultiSelectComponent implements OnInit, ControlValueAccessor {
   public _data: Array<ListItem> = [];
   public selectedItems: Array<ListItem> = [];
   public isDropdownOpen = false;
-  public isMoreSelectedOption=false;
+  public isMoreSelectedOption = false;
   public selectedItem: any;
   filter: ListItem = new ListItem(this.data);
   defaultSettings: DropdownSettings = {
@@ -126,7 +117,7 @@ export class MultiSelectComponent implements OnInit, ControlValueAccessor {
       this._settings = Object.assign(this.defaultSettings);
     }
   }
-  
+
 
   @Input()
   public set data(value: Array<any>) {
@@ -149,9 +140,9 @@ export class MultiSelectComponent implements OnInit, ControlValueAccessor {
           typeof item === 'string'
             ? new ListItem(item)
             : new ListItem({
-                id: item[this._settings.idField],
-                text: item[this._settings.textField]
-              })
+              id: item[this._settings.idField],
+              text: item[this._settings.textField]
+            })
       );
     }
   }
@@ -169,18 +160,16 @@ export class MultiSelectComponent implements OnInit, ControlValueAccessor {
   private onTouchedCallback: () => void = noop;
   private onChangeCallback: (_: any) => void = noop;
 
-  constructor() {}
-  ngOnInit() {}
+  constructor() { }
+  ngOnInit() { }
   onItemClick($event: any, item: ListItem): any {
     this.selectedItem = item;
     if (this.disabled) {
       return false;
     }
- 
 
     const found = this.isSelected(item);
     const limit: any = Number(this.selectedItems?.length) < Number(this._settings?.limitSelection) ? true : false;
-
     if (!found) {
       if (this._settings.limitSelection) {
         if (limit) {
@@ -201,22 +190,20 @@ export class MultiSelectComponent implements OnInit, ControlValueAccessor {
       this.closeDropdown();
     }
   }
-  showSelectedItem()
-  {
-    this.isMoreSelectedOption=true;
+  showSelectedItem() {
+    this.isMoreSelectedOption = true;
   }
-  hideSelectedItem()
-  {
+  hideSelectedItem() {
     // this.isDropdownOpen = !this.isDropdownOpen;
-    this.isMoreSelectedOption=false;
+    this.isMoreSelectedOption = false;
   }
 
-  public removeAllItem(key: any){
+  public removeAllItem(key: any) {
 
-    if(key=="changeHeader"){
-      this.selectedItems=[];
+    if (key == "changeHeader") {
+      this.selectedItems = [];
     }
-    
+
   }
   writeValue(value: any) {
     if (value !== undefined && value !== null) {
@@ -228,9 +215,9 @@ export class MultiSelectComponent implements OnInit, ControlValueAccessor {
               typeof firstItem === 'string'
                 ? new ListItem(firstItem)
                 : new ListItem({
-                    id: firstItem[this._settings.idField],
-                    text: firstItem[this._settings.textField]
-                  })
+                  id: firstItem[this._settings.idField],
+                  text: firstItem[this._settings.textField]
+                })
             ];
           }
         } catch (e) {
@@ -242,9 +229,9 @@ export class MultiSelectComponent implements OnInit, ControlValueAccessor {
             typeof item === 'string'
               ? new ListItem(item)
               : new ListItem({
-                  id: item[this._settings.idField],
-                  text: item[this._settings.textField]
-                })
+                id: item[this._settings.idField],
+                text: item[this._settings.textField]
+              })
         );
         if (this._settings.limitSelection) {
           this.selectedItems = _data.splice(0, this._settings.limitSelection);
@@ -277,21 +264,20 @@ export class MultiSelectComponent implements OnInit, ControlValueAccessor {
   }
 
   isSelected(clickedItem: ListItem) {
-    if(this.defaultSettings.singleSelection==true)
-    {
+    if (this.defaultSettings.singleSelection == true) {
       this.closeDropdown();
     }
     let found = false;
-    if(this.defaultSettings.singleSelection==true){
-     
-    }else{
-    this.selectedItems.forEach(item => {
-      if (clickedItem.id === item.id) {
-        found = true;
-      }
-    });
+    if (this.defaultSettings.singleSelection == true) {
+
+    } else {
+      this.selectedItems.forEach(item => {
+        if (clickedItem.id === item.id) {
+          found = true;
+        }
+      });
     }
-    
+
     return found;
   }
 
@@ -315,8 +301,6 @@ export class MultiSelectComponent implements OnInit, ControlValueAccessor {
       this.selectedItems.push(item);
     }
     this.onChangeCallback(this.emittedValue(this.selectedItems));
-    console.log("item");
-    console.log(item);
     this.onSelect.emit(this.emittedValue(item));
   }
 
@@ -353,7 +337,7 @@ export class MultiSelectComponent implements OnInit, ControlValueAccessor {
   }
 
   objectify(val: ListItem) {
-    const obj:any = {};
+    const obj: any = {};
     obj[this._settings.idField] = val.id;
     obj[this._settings.textField] = val.text;
     return obj;
