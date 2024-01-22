@@ -39,7 +39,7 @@ const noop = () => { };
                 <span class="btn" *ngIf="_settings.singleSelection==false">
                  <span class="placeholder-item" *ngIf="selectedItems.length == 0">{{placeholder}}</span> 
                 
-                <span class="selected-item" *ngFor="let item of selectedItems;trackBy: trackByFn;let k = index;">{{item.text}} <a style="padding-top:2px;padding-left:2px;color:white" (click)="onItemClick($event,item)">x</a> </span>
+                <span class="selected-item" *ngFor="let item of selectedItems | slice:0:1;trackBy: trackByFn;let k = index;">{{item.text}} <a style="padding-top:2px;padding-left:2px;color:white" (click)="onItemClick($event,item)">x</a> </span>
                     <span style="float:right !important;padding-right:4px"><span (mouseover)="showSelectedItem()" (mouseleave)="hideSelectedItem()" class="selected-item-wrapper" style="padding-right: 6px;cursor:pointer" *ngIf="itemShowRemaining()>0">+{{itemShowRemaining()}}</span>
                     <span [ngClass]="isDropdownOpen ? 'fa fa-angle-up' : 'fa fa-angle-down'"></span>
                   </span>
