@@ -7,14 +7,14 @@
         <div class="from-date">
           <label class="col-form-label">From Date</label>
           <ngb-datepicker-popup [tabIndex]="1" [selectedDateKey]="searchModel['from_date']" controlName="fromDate" [maxDateKey]="startCalenderDate"
-            (clear)="clearNgModelValue()" (notify)="onDateSelected($event, 'from_date')"></ngb-datepicker-popup>
+             (notify)="onDateSelected($event, 'from_date')"></ngb-datepicker-popup>
           <div class="error-msg form-alert" *ngIf="isReportFromDateValid">From Date must be less than the To date.
           </div>
         </div>
         &nbsp;&nbsp;&nbsp;
         <div class="to-date">
           <label class="col-form-label">To Date</label>
-          <ngb-datepicker-popup [tabIndex]="2" [selectedDateKey]="searchModel['to_date']" controlName="toDate" (clear)="clearNgModelValue()"  
+          <ngb-datepicker-popup [tabIndex]="2" [selectedDateKey]="searchModel['to_date']" controlName="toDate"   
             (notify)="onDateSelected($event, 'to_date')"></ngb-datepicker-popup>
           <div class="error-msg form-alert" *ngIf="isReportToDateValid">From Date must be less than or equal to To date
           </div>
@@ -67,7 +67,7 @@
               <div class="form-field">
                 <ngb-datepicker-popup [selectedDateKey]="taxCollectionPaymentModel['depositFromDate']" [(ngModel)]="taxCollectionPaymentModel.depositFromDate"
                   [controlName]="'depositFromDate'" (notify)="onSelectNotify($event,'From')" name="depositFromDate" #depositFromDate="ngModel"
-                  [required]="true" [maxDateKey]="startCalenderDate" [minDateKey]="calendarMinDate" (clear)="clearNgModelValue()"
+                  [required]="true" [maxDateKey]="startCalenderDate" [minDateKey]="calendarMinDate" 
                   ngDefaultControl validateDate></ngb-datepicker-popup>
               </div>
             </div>
@@ -81,7 +81,7 @@
               <div class="form-field">
                 <ngb-datepicker-popup [selectedDateKey]="taxCollectionPaymentModel['depositToDate']" [(ngModel)]="taxCollectionPaymentModel.depositToDate"
                   [controlName]="'depositToDate'" (notify)="onSelectNotify($event,'To')" name="depositToDate" #depositToDate="ngModel"
-                  [required]="false" [minDateKey]="taxCollectionPaymentModel['depositFromDate']" (clear)="clearNgModelValue()"
+                  [required]="false" [minDateKey]="taxCollectionPaymentModel['depositFromDate']" 
                   ngDefaultControl></ngb-datepicker-popup>
               </div>
             </div>

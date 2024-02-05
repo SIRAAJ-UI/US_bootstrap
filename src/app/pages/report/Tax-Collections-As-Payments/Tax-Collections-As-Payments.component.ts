@@ -4,7 +4,7 @@ import { paymentSourcesData } from "./Tax-Collections-Data/payment-sources-data"
 import { TransactionRegisterService } from '../transaction-register/transaction-register.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
-import { environment } from 'environments/environment';
+import { environment } from '../../../../environments/environment';
 import { GlobalTaxToolService } from '../../_service/global-taxtools-service';
 
 
@@ -26,6 +26,8 @@ export class PaymentTaxCollectionComponent implements OnInit {
   height: number = 100;   // height f report
   showParameters = "true";
   parameters;
+  calendarMinDate;
+
   reportHistoryURL: SafeUrl;
   isReportFromDateValid = false;
   transactionDateValidation = false;

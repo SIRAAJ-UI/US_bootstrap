@@ -7,14 +7,14 @@
         <div class="from-date">
           <label class="col-form-label">From Date</label>
           <ngb-datepicker-popup [tabIndex]="1" [selectedDateKey]="searchModel['from_date']" controlName="fromDate" [maxDateKey]="startCalenderDate"
-            (clear)="clearNgModelValue()" (notify)="onDateSelected($event, 'from_date')"></ngb-datepicker-popup>
+             (notify)="onDateSelected($event, 'from_date')"></ngb-datepicker-popup>
           <div class="error-msg form-alert" *ngIf="isReportFromDateValid">From Date must be less than the To date.
           </div>
         </div>
         &nbsp;&nbsp;&nbsp;
         <div class="to-date">
           <label class="col-form-label">To Date</label>
-          <ngb-datepicker-popup [tabIndex]="2" [selectedDateKey]="searchModel['to_date']" controlName="toDate" (clear)="clearNgModelValue()"
+          <ngb-datepicker-popup [tabIndex]="2" [selectedDateKey]="searchModel['to_date']" controlName="toDate" 
             (notify)="onDateSelected($event, 'to_date')"></ngb-datepicker-popup>
           <div class="error-msg form-alert" *ngIf="isReportToDateValid">From Date must be less than or equal to To date
           </div>
@@ -84,9 +84,9 @@
                 <span class="text-danger font-weight-bold">*</span>
               </label>
               <div class="form-field">
-                <ngb-datepicker-popup [selectedDateKey]="transactionRegisterModel['depositDate']" [(ngModel)]="transactionRegisterModel.depositDate"
+                <ngb-datepicker-popup [selectedDateKey]="transactionRegisterModel['depositDate']" 
                   [controlName]="'depositDate'" (notify)="onSelectNotify($event,'depositDate')" name="depositDate" [required]="true"
-                  [maxDateKey]="startCalenderDate" [minDateKey]="calendarMinDate" (clear)="clearNgModelValue()" ngDefaultControl></ngb-datepicker-popup>
+                  [maxDateKey]="startCalenderDate" [minDateKey]="calendarMinDate"  ngDefaultControl></ngb-datepicker-popup>
               </div>
             </div>
           </div>

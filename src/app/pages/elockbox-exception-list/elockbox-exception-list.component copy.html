@@ -8,7 +8,7 @@
           </label>
           <div class="input-group">
             <ngb-datepicker-popup [tabIndex]="1" [selectedDateKey]="searchModel['from_date']" controlName="fromDate" [maxDateKey]="startCalenderDate"
-              (clear)="clearNgModelValue()" (notify)="onDateSelected($event, 'from_date')" [required]="true"></ngb-datepicker-popup>
+              (notify)="onDateSelected($event, 'from_date')" [required]="true"></ngb-datepicker-popup>
           </div>
         </div>
         <div class="form-group" style="margin-bottom: 0rem;">
@@ -16,7 +16,7 @@
           </label>
           <div class="input-group">
             <ngb-datepicker-popup [tabIndex]="1" [selectedDateKey]="searchModel['to_date']" controlName="toDate" [minDateKey]="searchModel['from_date']"
-              [maxDateKey]="startCalenderDate" (clear)="clearNgModelValue()" (notify)="onDateSelected($event, 'to_date')"></ngb-datepicker-popup>
+              [maxDateKey]="startCalenderDate"  (notify)="onDateSelected($event, 'to_date')"></ngb-datepicker-popup>
           </div>
           <div class="text-danger" *ngIf="isDateGreatherLessThanFromDate">
               From Date must be less than To Date

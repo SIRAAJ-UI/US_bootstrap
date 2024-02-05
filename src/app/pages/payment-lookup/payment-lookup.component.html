@@ -67,7 +67,7 @@
             </label>
             <div class="input-group">
               <ngb-datepicker-popup [tabIndex]="7" style="border-left: 5px solid #a94442;position: relative;" [selectedDateKey]="transactionlNGModal['Payment_From']"
-                controlName="transactionToData" [maxDateKey]="startCalenderDate" (clear)="clearNgModelValue()" (notify)="onTransactionDateSelectNotify($event,'Payment_From')"></ngb-datepicker-popup>
+                controlName="transactionToData" [maxDateKey]="startCalenderDate" (notify)="onTransactionDateSelectNotify($event,'Payment_From')"></ngb-datepicker-popup>
             </div>
             <app-field-error-display [displayError]="(isDateFormatWrong)" errorMsg="The required date format is: MM/DD/YYYY">
             </app-field-error-display>
@@ -85,7 +85,7 @@
             <label for="example-search-input" class="col-form-label">To Date</label>
             <div class="input-group">
               <ngb-datepicker-popup [tabIndex]="8" [selectedDateKey]="transactionlNGModal['Payment_To']" controlName="transactionFromData"
-                [minDateKey]="transactionlNGModal['Payment_From']" (clear)="clearNgModelValue()" [maxDateKey]="startCalenderDate"
+                [minDateKey]="transactionlNGModal['Payment_From']"  [maxDateKey]="startCalenderDate"
                 (notify)="onTransactionDateSelectNotify($event,'Payment_To')"></ngb-datepicker-popup>
             </div>
             <app-field-error-display [displayError]="(isFromToDateFormatWrong)" errorMsg="The required date format is: MM/DD/YYYY">
@@ -137,7 +137,7 @@
             <div class="input-group">
 
               <ngb-datepicker-popup [tabIndex]="12" style="border-left: 5px solid #a94442;" [selectedDateKey]="creditNGModal['Payment_From']"
-                controlName="creditToData" [maxDateKey]="startCalenderDate" (clear)="clearNgModelValue()" (notify)="onCreditDateSelectNotify($event,'Payment_From')"></ngb-datepicker-popup>
+                controlName="creditToData" [maxDateKey]="startCalenderDate"  (notify)="onCreditDateSelectNotify($event,'Payment_From')"></ngb-datepicker-popup>
               <!-- [maxDateKey]="creditNGModal['Payment_From']"   
               <input tabindex="14" [firstDayOfWeek]="7" class="form-control" autocomplete="off" [(ngModel)]="creditNGModal['Payment_From']" placeholder="mm/dd/yyyy" maxlength="10"
                 name="start-date" [displayMonths]="1" [navigation]="'select'" [maxDate]="startCalenderDate" ngbDatepicker #Payment_From="ngbDatepicker"
@@ -165,7 +165,7 @@
             <label for="example-search-input" class="col-form-label">To Date</label>
             <div class="input-group">
               <ngb-datepicker-popup [tabIndex]="15" [selectedDateKey]="creditNGModal['Payment_To']" controlName="Payment_To" [minDateKey]="creditNGModal['Payment_From']"
-                (clear)="clearNgModelValue()" [maxDateKey]="startCalenderDate" (notify)="onCreditDateSelectNotify($event,'Payment_To')"></ngb-datepicker-popup>
+                 [maxDateKey]="startCalenderDate" (notify)="onCreditDateSelectNotify($event,'Payment_To')"></ngb-datepicker-popup>
 
               <!-- <input class="form-control" [firstDayOfWeek]="7" tabindex="15" autocomplete="off" [(ngModel)]="creditNGModal['Payment_To']" placeholder="mm/dd/yyyy" name="end-date"
                 [displayMonths]="1" [navigation]="'select'" [minDate]="creditNGModal['Payment_From']" (focusout)="hideErrorMsgFunction()"
@@ -224,7 +224,7 @@
             <div class="input-group">
 
               <ngb-datepicker-popup [tabIndex]="21" style="border-left: 5px solid #a94442;" [selectedDateKey]="depositNGModal['Payment_From']"
-                controlName="Payment_From" [maxDateKey]="startCalenderDate" (clear)="clearNgModelValue()" (notify)="onDepositDateSelectNotify($event,'Payment_From')"></ngb-datepicker-popup>
+                controlName="Payment_From" [maxDateKey]="startCalenderDate"  (notify)="onDepositDateSelectNotify($event,'Payment_From')"></ngb-datepicker-popup>
               <!-- <input tabindex="21" class="form-control" autocomplete="off" [(ngModel)]="depositNGModal['Payment_From']" placeholder="mm/dd/yyyy" maxlength="10"
                 name="start-date" [displayMonths]="1" [navigation]="'select'" [maxDate]="startCalenderDate" [firstDayOfWeek]="7" ngbDatepicker #Payment_From="ngbDatepicker"
                 onkeyup="this.value=this.value.replace(/^(\d\d)(\d)$/g,'$1/$2').replace(/^(\d\d\/\d\d)(\d+)$/g,'$1/$2').replace(/[^\d\/]/g,'')"
@@ -253,7 +253,7 @@
             <label for="example-search-input" class="col-form-label">To Date</label>
             <div class="input-group">
               <ngb-datepicker-popup [tabIndex]="22" [selectedDateKey]="depositNGModal['Payment_To']" controlName="Payment_To" [minDateKey]="depositNGModal['Payment_From']"
-                (clear)="clearNgModelValue()" (notify)="onDepositDateSelectNotify($event,'Payment_To')"></ngb-datepicker-popup>
+                 (notify)="onDepositDateSelectNotify($event,'Payment_To')"></ngb-datepicker-popup>
               <!-- <input tabindex="22" class="form-control" autocomplete="off" [(ngModel)]="depositNGModal['Payment_To']" [firstDayOfWeek]="7" placeholder="mm/dd/yyyy" name="end-date"
                 [displayMonths]="1" [navigation]="'select'" [minDate]="depositNGModal['Payment_From']" (focusout)="hideErrorMsgFunction()"
                 (click)="Payment_To.toggle()"

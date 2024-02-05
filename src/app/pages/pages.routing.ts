@@ -158,9 +158,84 @@ const routes: Routes = [
             {path:'about', 
             loadChildren:() => import('./grid/grid.module').then( r => r.GridModule),data:{breadcrumb:''}},
             {path:'grid', component:GridComponent,data:{breadcrumb:''}},
-//             { path: 'search', component: SearchComponent, data: { breadcrumb: 'Search' } }
 
+            {
+                path: 'report/dailyexceptionreport',
+                loadChildren:() => import('../pages/report/daily-exception-report/daily-exception-report.module').then( r => r.DailyExceptionReportModule),
+                data: { breadcrumb: 'Daily Exception Report' }
+            },
+            {
+                path: 'report/dailypaymentreport',
+                loadChildren:() => import('../pages/report/daily-payment-report/daily-payment-report.module').then( r => r.DailyPaymentReportModule),
+                data: { breadcrumb: 'Daily Payment Report' }
+            },
+            {
+                path: 'report/transactionreport',
+                loadChildren:() => import('../pages/report/transaction-register/transaction-register.module').then( r => r.TransactionRegisterModule),
+                data: { breadcrumb: 'Transaction Register' }
+            },
+            {
+                path: 'report/dailybatchreport',
+                loadChildren:() => import('../pages/report/daily-batch-report/daily-batch-report.module').then( r => r.DailyBatchReportModule),
+                data: { breadcrumb: 'Daily Batch Report' }
+            },
+            {
+                path: 'report/dailypendingpaymentreport',
+                loadChildren:() => import('../pages/report/daily-pending-payment-report/daily-pending-payment-report.module').then( r => r.DailyPendingPaymentReportModule),
+                data: { breadcrumb: 'Pending Payments Report' }
+            },
+            {
+                path: 'report/selfservicereport',
+                loadChildren:() => import('../pages/report/self-service-report/self-service-report.module').then( r => r.SelfServiceReportModule),
+                data: { breadcrumb: 'Batch Type-Self Service Report' }
+            },
+            {
+                path: 'report/paymentTaxCollection',
+                loadChildren:() => import('../pages/report/Tax-Collections-As-Payments/Tax-Collections-As-Payments.module').then( r => r.PaymentTaxCollectionModule),
+                data: { breadcrumb: 'Tax Collections as Payments' }
+            },
+            {
+                path: 'report/depositsTaxCollection',
+                loadChildren:() => import('../pages/report/tax-collections-as-deposits/tax-collection-as-deposits.module').then( r => r.TaxCollectionAsDepositsModule),
+                data: { breadcrumb: 'Tax Collection as Deposits Report' }
+            },
 
+            {
+                path: 'report/legacyDailyPaymentReport',
+                loadChildren:() => import('../pages/report/legacy-daily-payment-report/legacy-daily-payment-report.module').then(r => r.LegacyDailyPaymentReporttModule),
+                data: { breadcrumb: 'Legacy Daily Payment Report' }
+            },
+{
+                path: 'report/supplementalreport',
+                loadChildren:() => import('../pages/report/year-end-supplemental-report/year-end-supplemental-report.module').then(r => r.YearEndSupplementalReportModule),
+                data: { breadcrumb: 'Year End Supplemental Pending Paid Report' }
+            },
+            {
+                path: 'report/dailybalancingreport',
+                loadChildren:() => import('../pages/report/daily-balancing-report/daily-balancing-report.module').then(r => r.DailyBalancingReportModule),
+                data: { breadcrumb: 'Daily Balancing Report' }
+            },
+            {
+                path: 'report/elockbox/:type',
+                loadChildren:() => import('../pages/report/eLockbox/eLockbox-report.module').then(r =>r.ELockboxModule),
+                // data: { breadcrumb: 'E-lockbox Exception Report' }
+            },
+             {
+                path: 'report/Apportionment/currentsecuredcollections',
+                loadChildren:() => import('../pages/report/apportionment/current-secured-collections/current-secured-collections.module').then(r => r.CurrentSecuredCollectionsModule),
+                data: { breadcrumb: 'Current Secured Collections' }
+            },
+            {
+                path: 'report/currentsecuredunpaidcharge',
+                loadChildren:() => import('../pages/report/current-secured-unpaid-tax-charge/current-secured-unpaid-charge.module').then(r => r.CurrentSecuredUnpaidChargeModule),
+                data: { breadcrumb: 'Current Secured Unpaid Tax Charges' }
+            },
+            {
+                path:'report/jeopardyletterslist',
+                loadChildren:() => import('../pages/report/jeopardy-letters-list/jeopardy-letters-list.module').then(r =>r.JeopardyLettersListModule),
+                data:{breadcrumb:'Jeopardy Letters'}
+            },
+            
         ]
 
     }

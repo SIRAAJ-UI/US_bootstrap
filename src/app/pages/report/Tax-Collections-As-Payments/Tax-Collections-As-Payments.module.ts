@@ -4,10 +4,11 @@ import { RouterModule,Routes } from '@angular/router';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MultiselectDropdownModule } from 'angular-2-dropdown-multiselect';
-import { SSRSReportViewerModule } from 'ngx-ssrs-reportviewer';
+import { ReportViewerModule } from 'ngx-ssrs-reportviewer';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbDatepickerPopupModule } from '../../common-component/ngb-date-picker/datepicker-popup.module';
-import { MatRadioModule,  MatFormFieldModule } from '@angular/material';
+import { MatRadioModule } from '@angular/material/radio';
+import {MatFormFieldModule} from '@angular/material/form-field';
 import { Ng2MultiSelectDropDownModule } from '../../common-directive/ng-multiselect-dropdown';
 
 import { PaymentTaxCollectionComponent } from './Tax-Collections-As-Payments.component';
@@ -23,11 +24,11 @@ export const routes:Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     PerfectScrollbarModule,
-    NgbModule.forRoot(),    
+    NgbModule,    
     FormsModule,
     NgbModule,
     ReactiveFormsModule,
-    SSRSReportViewerModule,
+    ReportViewerModule,
     Ng2MultiSelectDropDownModule,
     NgbDatepickerPopupModule,
     PipesModule

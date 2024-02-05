@@ -3,7 +3,7 @@ import { AppCommons } from '../../shared/app.commons';
 import { TransactionRegisterService } from './transaction-register.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { DomSanitizer, SafeHtml, SafeUrl } from '@angular/platform-browser';
-import { environment } from 'environments/environment';
+import { environment } from '../../../../environments/environment';
 import { GlobalTaxToolService } from '../../_service/global-taxtools-service';
 const REPORTBYLIST = [{
   // value:'paymentSource',name:'Payment Source'

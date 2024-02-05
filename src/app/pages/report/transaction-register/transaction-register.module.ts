@@ -8,7 +8,7 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { TransactionRegisterComponent } from './transaction-register.component';
 import { NgbDatepickerPopup } from '../../common-component/ngb-date-picker/datepicker-popup';
 import { NgbDatepickerPopupModule } from '../../common-component/ngb-date-picker/datepicker-popup.module';
-import { SSRSReportViewerModule } from 'ngx-ssrs-reportviewer';
+import { ReportViewerModule } from 'ngx-ssrs-reportviewer';
 
 export const routes:Routes = [
   { path: '', component: TransactionRegisterComponent, pathMatch: 'full' }
@@ -19,10 +19,10 @@ export const routes:Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     PerfectScrollbarModule,
-    NgbModule.forRoot(),    
+    NgbModule,    
     FormsModule,
     NgbDatepickerPopupModule,
-    SSRSReportViewerModule
+    ReportViewerModule
   ],
   declarations: [
     TransactionRegisterComponent

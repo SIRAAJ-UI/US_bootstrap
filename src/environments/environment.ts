@@ -6,9 +6,9 @@
 export const environment = {
   production: true,
   // serverUrl: "http://localhost:51176/",
-  //serverUrl: "http://localhost:5000/",
+  serverUrl: "https://localhost:7196/",
 
-  serverUrl: "https://taxtoolsd.acgov.org/",   //Dev
+  //serverUrl: "https://taxtoolsd.acgov.org/",   //Dev
    //serverUrl: "https://taxtoolst.acgov.org/",   //QA
   //serverUrl: "https://taxtoolsq.acgov.org/",     //UAT
   //serverUrl: "https://taxtools.acgov.org/",   //Prod
